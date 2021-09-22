@@ -9,12 +9,20 @@ services:
       - POSTGRES_PASSWORD=secret
       # DBがないとエラーでるのでなんとかする
       # - POSTGRES_DB=tennis
+  nginx:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    depends_on:
+      - api
+    ports:
+      - "80:80" 
   api:
     build:
       dockerfile: Dockerfile.dev
       context: ./server
     ports:
-      - "8080:8080"
+      - "8080"
     environment:
       - DB_SOURCE=postgresql://root:secret@postgres:5432/tennis?sslmode=disable
     depends_on:
