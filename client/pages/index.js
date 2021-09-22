@@ -25,7 +25,7 @@ const Home = () => (
 
         <a href="https://nextjs.org/learn" className={styles.card}>
           <h3>Learn &rarr;</h3>
-          <p>Learn abouaaat Next.js in an interactive course with quizzes!</p>
+          <p>Learn abouaaaaaaat Next.js in an interactive course with quizzes!</p>
         </a>
 
         <a
