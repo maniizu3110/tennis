@@ -1,0 +1,7 @@
+# Build stage
+FROM golang
+WORKDIR /app
+COPY . .
+RUN go mod tidy
+RUN curl -L https://github.com/golang-migrate/migrate/releases/download/v4.14.1/migrate.linux-amd64.tar.gz | tar xvz
+CMD [ "make","run"]

@@ -1,0 +1,41 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:12-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=secret
+      # DBがないとエラーでるのでなんとかする
+      # - POSTGRES_DB=tennis
+  nginx:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    depends_on:
+      - api
+    ports:
+      - "80:80" 
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./server
+    ports:
+      - "8080"
+    environment:
+      - DB_SOURCE=postgresql://root:secret@postgres:5432/tennis?sslmode=disable
+    depends_on:
+      - postgres
+    volumes:
+      - ./server:/app
+  client:
+    ports:
+    - "3000:3000"
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    volumes:
+      - /app/.next
+      - /app/node_modules
+      - ./client:/app

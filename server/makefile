@@ -1,8 +1,8 @@
 postgres:
 	docker run --name postgres12 --network tennis-network -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret -p 5432:5432 -d postgres:12-alpine
-create-container:
-	docker build -t tennis:latest .
-	docker run --name tennis -p 8080:8080 --network tennis-network -e DB_SOURCE="postgresql://root:secret@postgres12:5432/tennis?sslmode=disable" tennis:latest
+api-container:
+	docker build -t tennis-server:latest -f Dockerfile.dev .
+	docker run --name tennis-server -p 8080:8080 --network tennis-network -e DB_SOURCE="postgresql://root:secret@postgres12:5432/tennis?sslmode=disable" tennis-client:latest
 # docker-reset作成する
 
 createmigrate:

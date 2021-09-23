@@ -25,7 +25,7 @@ const Home = () => (
 
         <a href="https://nextjs.org/learn" className={styles.card}>
           <h3>Learn &rarr;</h3>
-          <p>Learn about Next.js in an interactive course with quizzes!</p>
+          <p>Learn abouaaaaaaat Next.js in an interactive course with quizzes!</p>
         </a>
 
         <a
@@ -38,7 +38,7 @@ const Home = () => (
 
         <a href="https://vercel.com/new" className={styles.card}>
           <h3>Deploy &rarr;</h3>
-          <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
+          <p>Instantly deploy your Next.js site to a public URL witasdfasdfadsfh Vercel.</p>
         </a>
       </div>
     </main>
