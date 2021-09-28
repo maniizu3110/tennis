@@ -4,7 +4,6 @@ import (
 	"net/http"
 	"server/api/service"
 	"server/api/sqlc"
-
 	"github.com/labstack/echo/v4"
 )
 
