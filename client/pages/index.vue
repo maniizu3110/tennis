@@ -84,7 +84,7 @@
 export default {
   data() {
     return {
-      wassyoi: "hello",
+      wassyoi: "helloaa",
     };
   },
   methods: {

@@ -1,12 +1,12 @@
-FROM node:alpine as builder
+FROM node:alpine
 WORKDIR '/app'
 COPY ./package.json ./
 COPY ./package-lock.json ./
 COPY ./nuxt.config.js ./
+COPY ./static ./
+ENV HOST=0.0.0.0
+
 RUN npm install
 COPY . .
 RUN npm run build
-
-FROM nginx
-EXPOSE 3000
-COPY --from=builder /app/.next /usr/share/nginx/html
+CMD ["npm","run","start"]
