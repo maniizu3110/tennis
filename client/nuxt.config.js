@@ -43,7 +43,8 @@ export default {
     '@nuxtjs/axios'
   ],
   axios:{
-    baseURL:"http://localhost/api/v1"
+    // TODO:プロキシ（nginx使うとスマート？）
+    baseURL:"http://localhost:8080"
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
