@@ -1,6 +1,7 @@
-# Build stage
+# 単体で動かしてもpostgresにつながっていないのでAPI叩くとエラー出る
 FROM golang:1.16-alpine3.13 AS builder
 WORKDIR /app
 COPY . .
+RUN go get -u github.com/cosmtrek/air
 EXPOSE 8080
 CMD [ "go","run","main.go" ]
