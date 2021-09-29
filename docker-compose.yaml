@@ -6,6 +6,8 @@ services:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=secret
       - POSTGRES_DB=tennis
+    ports:
+      - "5432:5432"
   client:
     build:
       context: ./client
