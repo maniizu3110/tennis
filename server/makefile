@@ -4,7 +4,6 @@ create-container:
 	docker build -t tennis:latest .
 	docker run --name tennis -p 8080:8080 --network tennis_default -e DB_SOURCE="postgresql://root:secret@postgres12:5432/tennis?sslmode=disable" tennis:latest
 # docker-reset作成する
-
 createmigrate:
 	migrate create -ext sql -dir db/migration -seq init_schema
 
