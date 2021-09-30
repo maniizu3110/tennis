@@ -1,7 +1,7 @@
 #! /bin/sh
 
 # non-zeroの時exitするための設定
-set -e 
+set -e
 
 echo "run db migration"
 source /app/app.env
