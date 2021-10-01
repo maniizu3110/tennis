@@ -9,6 +9,8 @@ before_install:
 
 script:
   - docker run tennis/client npm run test
+
+
 after_success:
   - docker build -t maniizu3110/tennis-client ./client
   - docker build -t maniizu3110/tennis-server ./server
