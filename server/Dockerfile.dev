@@ -1,12 +1,8 @@
-# Build stage
 FROM golang:1.16-alpine3.13
 WORKDIR /app
-COPY . .
-RUN apk --no-cache add curl
 COPY . .
 RUN go get -u github.com/cosmtrek/air
 
 EXPOSE 8080
 CMD [ "go","run","main.go" ]
-# NETRYPOINTとCMDは一緒に使われてCMDはENTRYPOINTのパラメータとして渡される
-ENTRYPOINT [ "/app/start.dev.sh" ]
+# migrationは実行されないことに注意
