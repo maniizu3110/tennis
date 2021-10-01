@@ -22,15 +22,14 @@ after_success:
   - docker push maniizu3110/tennis-server
   - docker push maniizu3110/tennis-nginx
 
-# beanstalkにデプロイしたいときの処理
-# deploy:
-#   provider: elasticbeanstalk
-#   region: 'us-east-1'
-#   app: 'multi-docker'
-#   env: 'MultiDocker-env'
-#   bucket_name: 'elasticbeanstalk-us-east-1-923445559289'
-#   bucket_path: 'docker-multi'
-#   on:
-#     branch: master
-#   access_key_id: $AWS_ACCESS_KEY
-#   secret_access_key: $AWS_SECRET_KEY
+deploy:
+  provider: elasticbeanstalk
+  region: 'ap-northeast-1'
+  app: 'tennis'
+  env: 'Tennis-env'
+  bucket_name: 'elasticbeanstalk-ap-northeast-1-800317362310'
+  bucket_path: 'tennis'
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
