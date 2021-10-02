@@ -1,0 +1,18 @@
+version: "3"
+services:
+  client:
+    image: "maniizu3110/tennis-client"
+    mem_limit: 128m
+    hostname: client
+  server:
+    image: "maniizu3110/tennis-server"
+    mem_limit: 128m
+    hostname: api
+    environment:
+      - DB_SOURCE=$DB_SOURCE
+  nginx:
+    image: "maniizu3110/tennis-nginx"
+    mem_limit: 128m
+    hostname: nginx
+    ports:
+      - "80:80"
