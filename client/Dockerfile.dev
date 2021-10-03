@@ -6,4 +6,5 @@ COPY ./nuxt.config.js ./
 RUN npm install
 COPY . .
 ENV HOST=0.0.0.0
+ENV API_URL=http://localhost
 CMD ["npm", "run", "dev"]
