@@ -13,13 +13,11 @@ script:
 
 after_success:
   - docker build -t maniizu3110/tennis-client ./client
-  - docker build -t maniizu3110/tennis-server ./server
   - docker build -t maniizu3110/tennis-nginx ./nginx
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
   - docker push maniizu3110/tennis-client
-  - docker push maniizu3110/tennis-server
   - docker push maniizu3110/tennis-nginx
 
 deploy:
