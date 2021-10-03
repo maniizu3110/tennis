@@ -8,6 +8,15 @@ services:
       - POSTGRES_DB=tennis
     ports:
       - "5432:5432"
+  nginx:
+    depends_on:
+      - api
+      - client
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - '80:80'
   client:
     build:
       context: ./client

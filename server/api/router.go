@@ -23,7 +23,7 @@ func (server *Server) SetRouter() *echo.Echo {
 	e.Validator = validator
 	middleware.CORS(e)
 	{
-		g := e.Group("/api/v1",
+		g := e.Group("/v1",
 			middleware.SetStore(server.store),
 			middleware.SetConfig(server.config),
 			middleware.SetTokenMaker(server.tokenMaker),
