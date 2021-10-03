@@ -2,10 +2,6 @@ version: "3.9"
 services:
   postgres:
     image: postgres:12-alpine
-    environment:
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=secret
-      - POSTGRES_DB=tennis
   api:
     build:
       context: .
