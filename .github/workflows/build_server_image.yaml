@@ -1,4 +1,4 @@
-name: Deploy to production
+name: build server image
 
 on:
   push:
@@ -35,10 +35,11 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       - name: Build and push
+        working-directory: ./server
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: ./server
+          context: ./
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/tennis-server
