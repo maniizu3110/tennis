@@ -37,4 +37,4 @@ jobs:
         run: docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/tennis-server .
 
       - name: push Docker image
-        run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/tennis-client
+        run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/tennis-server
