@@ -32,7 +32,6 @@ export default {
   },
   methods: {
     getUsers() {
-      console.log("hello");
       this.$axios
         .get("api/v1/user/")
         .then((res) => {
