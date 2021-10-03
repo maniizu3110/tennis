@@ -1,4 +1,4 @@
-name: build server image
+name: Build, Push server image
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./
+        working-directory: ./server
 
     steps:
       - name: Check out
@@ -25,7 +25,7 @@ jobs:
           aws-region: ap-northeast-1
 
       - name: Load secrets and save to app.env
-        run: aws secretsmanager get-secret-value --secret-id tennis-server --query SecretString --output text | jq -r 'to_entries|map("\(.key)=\(.value)")|.[]' > ./server/app.env
+        run: aws secretsmanager get-secret-value --secret-id tennis-server --query SecretString --output text | jq -r 'to_entries|map("\(.key)=\(.value)")|.[]' > app.env
 
       - name: Login to Docker Hub
         uses: docker/login-action@v1
